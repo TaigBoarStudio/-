@@ -37,7 +37,6 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
     { name: 'Услуги', href: NavLink.SERVICES },
     { name: 'О Нас', href: NavLink.ABOUT },
     { name: 'Портфолио', href: NavLink.PORTFOLIO },
-    { name: 'AI Вепрь', href: NavLink.CONTACT },
   ];
 
   return (

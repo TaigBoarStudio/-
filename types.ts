@@ -12,8 +12,9 @@ export interface Project {
   id: string;
   title: string;
   category: string;
-  image: string;
   description: string;
+  url?: string;
+  image?: string;
 }
 
 export interface ChatMessage {

@@ -1,49 +1,49 @@
 import React from 'react';
-import { Globe, Smartphone, Bot, Palette, Code2, Rocket } from 'lucide-react';
+import { Smartphone, Bot, Palette, Layout, Zap, PenTool } from 'lucide-react';
 import { Service } from '../types';
 
 const services: Service[] = [
   {
-    id: 'web',
-    title: 'Web Development',
-    description: 'Высокопроизводительные сайты. Next.js, React. Надежные, как вечная мерзлота.',
-    icon: Globe,
-    tags: ['React', 'Next.js', 'Three.js']
+    id: 'tilda',
+    title: 'Tilda Publishing',
+    description: 'Разработка сайтов на Tilda. Zero Block, сложная анимация, интеграции. Быстро и красиво.',
+    icon: Layout,
+    tags: ['Zero Block', 'Step-by-step', 'CRM']
+  },
+  {
+    id: 'design',
+    title: 'UI/UX Design',
+    description: 'Проектирование интерфейсов в Figma. Прототипы, дизайн-системы и визуал, который продает.',
+    icon: Palette,
+    tags: ['Figma', 'Prototyping', 'UI Kit']
   },
   {
     id: 'bot',
     title: 'Telegram Bots',
-    description: 'Боты для автоматизации. Продажи, поддержка, воронки. Работают 24/7 без выходных.',
+    description: 'Чат-боты для автоматизации рутины. Магазины, техподдержка, рассылки.',
     icon: Bot,
-    tags: ['Python', 'Aiogram', 'Payment']
+    tags: ['Python', 'Aiogram', 'Automation']
   },
   {
     id: 'miniapp',
     title: 'TG Mini Apps',
-    description: 'Приложения внутри Telegram. Web3, E-commerce, игры. Будущее мобайла.',
+    description: 'Веб-приложения внутри Telegram. Игры, сервисы и магазины прямо в мессенджере.',
     icon: Smartphone,
-    tags: ['TWA', 'React', 'TonConnect']
+    tags: ['React', 'TWA', 'TonConnect']
   },
   {
-    id: 'design',
-    title: 'Northern Design',
-    description: 'Чистый, холодный, функциональный дизайн. UX, который режет глаз своей четкостью.',
-    icon: Palette,
-    tags: ['Figma', 'UI/UX', 'Motion']
+    id: 'identity',
+    title: 'Identity',
+    description: 'Логотипы и фирменный стиль. Создаем узнаваемый образ для вашего бренда.',
+    icon: PenTool,
+    tags: ['Logo', 'Brandbook', 'Style']
   },
   {
-    id: 'backend',
-    title: 'Heavy Backend',
-    description: 'Серверные решения под высокую нагрузку. Выдержит любой наплыв пользователей.',
-    icon: Code2,
-    tags: ['FastAPI', 'PostgreSQL', 'Docker']
-  },
-  {
-    id: 'promotion',
-    title: 'Упаковка Стаи',
-    description: 'Брендинг и упаковка соцсетей. Единый стиль, выделяющий вас среди конкурентов.',
-    icon: Rocket,
-    tags: ['Branding', 'Style', 'Content']
+    id: 'optimization',
+    title: 'Optimization',
+    description: 'Ускорение работы сайтов, SEO-настройки и подключение аналитики.',
+    icon: Zap,
+    tags: ['SEO', 'Analytics', 'Speed']
   }
 ];
 
@@ -53,10 +53,10 @@ const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4 tracking-tight">
-            НАШ <span className="text-taiga-400">АРСЕНАЛ</span>
+            ЧТО МЫ <span className="text-taiga-400">ДЕЛАЕМ</span>
           </h2>
           <p className="text-taiga-200/60 max-w-2xl mx-auto">
-            Инструменты для выживания и доминирования в цифровой тайге.
+            Специализируемся на эффективных решениях. Никакого лишнего кода там, где он не нужен.
           </p>
         </div>
 
@@ -85,7 +85,7 @@ const Services: React.FC = () => {
               <div className="flex flex-wrap gap-2 relative z-10">
                 {service.tags.map(tag => (
                   <span key={tag} className="text-xs font-mono text-taiga-300 bg-taiga-900/50 px-2 py-1 rounded border border-taiga-500/10">
-                    #{tag}
+                    {tag}
                   </span>
                 ))}
               </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '../types';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Globe } from 'lucide-react';
 
 interface PortfolioProps {
   onOpenProject: () => void;
@@ -9,31 +9,10 @@ interface PortfolioProps {
 const projects: Project[] = [
   {
     id: '1',
-    title: 'Crypto Exchange Bot',
-    category: 'Telegram Bot',
-    image: 'https://picsum.photos/600/400?random=1',
-    description: 'Автоматический обменник криптовалют внутри Telegram с админ-панелью.'
-  },
-  {
-    id: '2',
-    title: 'Neon E-Shop',
-    category: 'Web Development',
-    image: 'https://picsum.photos/600/400?random=2',
-    description: 'Футуристичный интернет-магазин одежды с 3D примеркой.'
-  },
-  {
-    id: '3',
-    title: 'Burger Delivery App',
-    category: 'Mini App',
-    image: 'https://picsum.photos/600/400?random=3',
-    description: 'Telegram Mini App для доставки еды с интеграцией платежей.'
-  },
-  {
-    id: '4',
-    title: 'Architect Studio',
-    category: 'Design & Web',
-    image: 'https://picsum.photos/600/400?random=4',
-    description: 'Минималистичный корпоративный сайт для архитектурного бюро.'
+    title: 'VetPulse24',
+    category: 'Veterinary Clinic',
+    url: 'https://vetpulse24.ru',
+    description: 'Сайт ветеринарной клиники. Акцент на доверие, быструю запись и мобильную адаптацию.'
   },
 ];
 
@@ -48,53 +27,57 @@ const Portfolio: React.FC<PortfolioProps> = ({ onOpenProject }) => {
           <div>
             <div className="flex items-center gap-2 text-boar-500 mb-2">
               <span className="w-8 h-[2px] bg-boar-500"></span>
-              <span className="uppercase tracking-widest text-sm font-bold">Кейсы</span>
+              <span className="uppercase tracking-widest text-sm font-bold">Портфолио</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-              РЕАЛИЗОВАННЫЕ ЦЕЛИ
+              ИЗБРАННЫЕ ПРОЕКТЫ
             </h2>
-          </div>
-          <div className="mt-6 md:mt-0">
-            <button className="px-6 py-3 border border-taiga-500/30 rounded-full text-taiga-100 hover:bg-taiga-900 transition-colors flex items-center gap-2 group">
-              Все проекты <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
-            </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project) => (
             <div 
               key={project.id} 
-              className="group relative overflow-hidden rounded-2xl bg-taiga-900 cursor-pointer border border-taiga-500/10 hover:border-boar-500/50 transition-colors"
-              onClick={onOpenProject}
+              className="group relative overflow-hidden rounded-2xl bg-taiga-900 border border-taiga-500/10 hover:border-boar-500/50 transition-all duration-300 hover:bg-taiga-900/80 flex flex-col"
             >
-              <div className="aspect-w-16 aspect-h-9 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0"
-                />
-              </div>
+              {/* Abstract Background Pattern */}
+              <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-taiga-500/30 via-transparent to-transparent"></div>
               
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-taiga-950 via-taiga-950/60 to-transparent opacity-90"></div>
-              
-              <div className="absolute bottom-0 left-0 p-8 w-full translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                <div className="flex justify-between items-end">
-                  <div>
-                    <span className="text-boar-500 text-xs font-bold tracking-widest uppercase mb-2 block">
-                      {project.category}
-                    </span>
-                    <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-taiga-200/70 text-sm max-w-md line-clamp-2 group-hover:text-white transition-colors">
-                      {project.description}
-                    </p>
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0">
-                    <ArrowUpRight className="w-5 h-5 text-white" />
-                  </div>
+              <div className="p-8 flex-1 flex flex-col relative z-10">
+                <div className="flex justify-between items-start mb-6">
+                  <span className="inline-block px-3 py-1 rounded bg-taiga-950/50 border border-taiga-800 text-boar-500 text-xs font-bold uppercase tracking-widest">
+                    {project.category}
+                  </span>
+                  {project.url && (
+                    <a 
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/5 rounded-full hover:bg-boar-500 hover:text-white transition-colors text-taiga-400"
+                      title="Открыть сайт"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Globe className="w-5 h-5" />
+                    </a>
+                  )}
+                </div>
+
+                <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 group-hover:text-taiga-100 transition-colors">
+                  {project.title}
+                </h3>
+                
+                <p className="text-taiga-200/70 text-sm md:text-base leading-relaxed mb-8 max-w-md">
+                  {project.description}
+                </p>
+
+                <div className="mt-auto pt-6 border-t border-taiga-500/10 flex items-center gap-4">
+                   <button 
+                     onClick={project.id === '1' ? onOpenProject : undefined}
+                     className="text-white font-bold text-sm uppercase tracking-wider flex items-center gap-2 group-hover:text-boar-500 transition-colors"
+                   >
+                     Подробнее о кейсе <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                   </button>
                 </div>
               </div>
             </div>
