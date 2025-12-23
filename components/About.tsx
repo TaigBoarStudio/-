@@ -1,96 +1,70 @@
 import React from 'react';
-import { PenTool, Monitor, Sparkles, Layers } from 'lucide-react';
+import { PenTool, Monitor, Sparkles, Zap } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 relative z-10 overflow-hidden">
-      {/* Background texture specific for this section */}
-      <div className="absolute inset-0 bg-taiga-950">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-taiga-800/10 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-boar-900/10 rounded-full blur-[100px]"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-32 relative overflow-hidden bg-wild-night">
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-wild-sunset/5 rounded-full blur-[150px] -z-10"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
-          {/* Text Manifesto */}
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-taiga-900/50 border border-taiga-800 text-boar-500 text-xs font-bold uppercase tracking-widest mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-wild-indigo/50 border border-wild-cyan/20 text-wild-cyan text-[10px] font-black uppercase tracking-[0.3em] mb-10">
               <Sparkles className="w-3 h-3" />
-              <span>О Студии</span>
+              <span>Manifesto</span>
             </div>
             
-            <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              ДВА <span className="text-taiga-400">СПЕЦИАЛИСТА.</span><br />
-              ОДИН СТАНДАРТ.
+            <h2 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 leading-tight tracking-tighter">
+              СИЛА В <span className="text-wild-sunset">ПРОСТОТЕ.</span><br />
+              ДИКОСТЬ В <span className="text-wild-cyan">ДЕТАЛЯХ.</span>
             </h2>
             
-            <div className="space-y-6 text-lg text-taiga-200/80 leading-relaxed">
+            <div className="space-y-8 text-xl text-white/50 leading-relaxed font-light">
               <p>
-                Мы отказались от громоздкого продакшена в пользу скорости и эстетики. Мы не раздуваем штат и сметы. 
+                Мы верим, что в эпоху перенасыщенного контента выигрывает тот, кто говорит четко, ярко и по делу. 
               </p>
-              <p className="font-bold text-white border-l-4 border-boar-500 pl-4">
-                Наш выбор — Tilda для веба и Figma для дизайна.
+              <p className="text-white font-medium border-l-2 border-wild-sunset pl-8 py-2 italic">
+                TAIGA BOAR — это союз брутальной технической реализации и утонченного визуального стиля.
               </p>
               <p>
-                Это позволяет запускать проекты за дни, а не месяцы. Мы знаем возможности платформы на 100% и выжимаем из Zero Block максимум, создавая уникальные сайты, которые не отличить от кастомной разработки.
+                Мы не тратим ваше время на бесконечные правки. Мы берем задачу и создаем продукт, который работает с первой секунды запуска. Никаких шаблонов — только кастомный Zero Block и чистый UI.
               </p>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mt-12 border-t border-taiga-800 pt-8">
-              <div>
-                <div className="text-3xl font-display font-bold text-white">50+</div>
-                <div className="text-xs text-taiga-400 uppercase tracking-wider mt-1">Проектов</div>
-              </div>
-              <div>
-                <div className="text-3xl font-display font-bold text-white">Tilda</div>
-                <div className="text-xs text-taiga-400 uppercase tracking-wider mt-1">Experts</div>
-              </div>
-              <div>
-                <div className="text-3xl font-display font-bold text-white">100%</div>
-                <div className="text-xs text-taiga-400 uppercase tracking-wider mt-1">Качества</div>
-              </div>
             </div>
           </div>
 
-          {/* The Duo Cards */}
           <div className="grid gap-6">
-            {/* Person 1 */}
-            <div className="glass-card p-6 rounded-2xl flex gap-6 items-start group hover:bg-taiga-900/60 transition-colors border-l-4 border-l-transparent hover:border-l-boar-500">
-              <div className="p-4 bg-taiga-950 rounded-xl text-taiga-400 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <div className="glass-card p-10 rounded-[2.5rem] flex gap-8 items-start group hover:bg-wild-indigo/50 transition-all border-l-0 border-r-0 border-t-0 border-b-2 border-b-transparent hover:border-b-wild-cyan">
+              <div className="p-5 bg-wild-night border border-white/5 rounded-2xl text-wild-cyan group-hover:scale-110 transition-transform">
                 <Monitor className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-1">Разработчик</h3>
-                <p className="text-xs text-boar-500 font-bold uppercase tracking-widest mb-3">Tilda & Technical</p>
-                <p className="text-sm text-taiga-300 leading-relaxed">
-                  Мастер Zero Block. Настраивает анимации, интеграции, формы, SEO и подключает домены. Делает так, чтобы все работало как часы.
+                <h3 className="text-2xl font-bold text-white mb-2">Technical Core</h3>
+                <p className="text-xs text-wild-sunset font-black uppercase tracking-widest mb-4">Tilda & Engineering</p>
+                <p className="text-white/40 leading-relaxed">
+                  Мы выжимаем из Tilda всё: от сложной Step-by-Step анимации до глубокой интеграции внешних сервисов. Ваш сайт будет летать.
                 </p>
               </div>
             </div>
 
-            {/* Person 2 */}
-            <div className="glass-card p-6 rounded-2xl flex gap-6 items-start group hover:bg-taiga-900/60 transition-colors border-l-4 border-l-transparent hover:border-l-taiga-400">
-              <div className="p-4 bg-taiga-950 rounded-xl text-taiga-400 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <div className="glass-card p-10 rounded-[2.5rem] flex gap-8 items-start group hover:bg-wild-indigo/50 transition-all border-l-0 border-r-0 border-t-0 border-b-2 border-b-transparent hover:border-b-wild-sunset">
+              <div className="p-5 bg-wild-night border border-white/5 rounded-2xl text-wild-sunset group-hover:scale-110 transition-transform">
                 <PenTool className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-1">Дизайнер</h3>
-                <p className="text-xs text-taiga-400 font-bold uppercase tracking-widest mb-3">Figma & Visual</p>
-                <p className="text-sm text-taiga-300 leading-relaxed">
-                  Отвечает за смыслы и эстетику. Создает чистые, понятные макеты, продумывает логику пользователя и визуальный стиль бренда.
+                <h3 className="text-2xl font-bold text-white mb-2">Visual Wildness</h3>
+                <p className="text-xs text-wild-cyan font-black uppercase tracking-widest mb-4">Figma & Brand Strategy</p>
+                <p className="text-white/40 leading-relaxed">
+                  Дизайн, который невозможно пролистать. Мы создаем визуальные системы, которые мгновенно считываются и вызывают желание обладать.
                 </p>
               </div>
             </div>
             
-            {/* Connection Icon */}
-            <div className="hidden lg:flex justify-center -mt-3 -mb-3 relative z-10">
-               <div className="bg-taiga-950 border border-taiga-800 p-2 rounded-full text-taiga-500">
-                 <Layers className="w-5 h-5" />
-               </div>
+            <div className="flex justify-center mt-6">
+              <div className="p-4 bg-wild-indigo/30 rounded-full text-wild-cyan/50 animate-pulse">
+                <Zap className="w-6 h-6" />
+              </div>
             </div>
-
           </div>
         </div>
       </div>

@@ -34,76 +34,60 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   };
 
   const navLinks = [
-    { name: 'Услуги', href: NavLink.SERVICES },
-    { name: 'О Нас', href: NavLink.ABOUT },
-    { name: 'Портфолио', href: NavLink.PORTFOLIO },
+    { name: 'Сервис', href: NavLink.SERVICES },
+    { name: 'Манифест', href: NavLink.ABOUT },
+    { name: 'Кейсы', href: NavLink.PORTFOLIO },
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'glass-panel py-4 shadow-lg' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'glass-panel py-3 shadow-2xl' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0">
-            <button onClick={() => handleNavClick(NavLink.HOME)} className="flex items-center gap-3 group">
-              <div className="text-white bg-boar-600 p-1.5 rounded-lg shadow-[0_0_10px_rgba(234,88,12,0.3)] transition-transform group-hover:scale-110">
-                <Logo className="w-8 h-8" filled={false} />
-              </div>
-              <span className="font-display font-bold text-2xl tracking-tight text-white group-hover:text-boar-400 transition-colors drop-shadow-md">
+            <button onClick={() => handleNavClick(NavLink.HOME)} className="flex items-center group gap-3">
+              <Logo className="w-10 h-10 text-wild-sunset group-hover:text-wild-gold transition-transform group-hover:rotate-12" />
+              <span className="font-display font-bold text-xl tracking-tighter text-white group-hover:text-wild-sunset transition-colors uppercase">
                 TAIGA BOAR
               </span>
             </button>
           </div>
           
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-10">
               {navLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-taiga-100 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-all uppercase tracking-wider"
+                  className="text-white/60 hover:text-wild-cyan px-2 py-1 rounded-md text-xs font-bold transition-all uppercase tracking-[0.2em]"
                 >
                   {link.name}
                 </button>
               ))}
-              <button 
-                onClick={() => handleNavClick(NavLink.CONTACT)}
-                className="bg-white text-taiga-950 hover:bg-boar-500 hover:text-white px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-              >
-                Начать проект
-              </button>
             </div>
           </div>
 
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              className="bg-taiga-900/50 inline-flex items-center justify-center p-2 rounded-md text-taiga-300 hover:text-white hover:bg-taiga-800 focus:outline-none backdrop-blur-sm"
+              className="p-2 text-white/70 hover:text-white"
             >
-              <span className="sr-only">Open main menu</span>
-              {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
       </div>
 
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'} bg-taiga-950/95 backdrop-blur-xl border-b border-taiga-800`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <div className={`md:hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'} bg-wild-indigo/95 backdrop-blur-2xl`}>
+        <div className="px-4 pt-4 pb-8 space-y-4">
           {navLinks.map((link) => (
             <button
               key={link.name}
               onClick={() => handleNavClick(link.href)}
-              className="w-full text-left text-taiga-200 hover:text-white hover:bg-taiga-900 block px-3 py-2 rounded-md text-base font-medium"
+              className="w-full text-left text-white/70 hover:text-wild-cyan block py-2 text-lg font-bold uppercase tracking-widest"
             >
               {link.name}
             </button>
           ))}
-          <button 
-             onClick={() => handleNavClick(NavLink.CONTACT)}
-             className="w-full text-left text-boar-500 font-bold block px-3 py-2 mt-4 hover:bg-taiga-900 rounded-md"
-          >
-            Обсудить проект →
-          </button>
         </div>
       </div>
     </nav>

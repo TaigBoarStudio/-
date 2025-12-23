@@ -1,94 +1,86 @@
 import React from 'react';
-import { Smartphone, Bot, Palette, Layout, Zap, PenTool } from 'lucide-react';
+import { Smartphone, Bot, Palette, Layout, Zap, Globe } from 'lucide-react';
 import { Service } from '../types';
 
 const services: Service[] = [
   {
     id: 'tilda',
-    title: 'Tilda Publishing',
-    description: 'Разработка сайтов на Tilda. Zero Block, сложная анимация, интеграции. Быстро и красиво.',
-    icon: Layout,
-    tags: ['Zero Block', 'Step-by-step', 'CRM']
+    title: 'Tilda Mastery',
+    description: 'Разработка на грани искусства. 100% Zero Block, кастомный код, интеграции любой сложности.',
+    icon: Layout
   },
   {
     id: 'design',
-    title: 'UI/UX Design',
-    description: 'Проектирование интерфейсов в Figma. Прототипы, дизайн-системы и визуал, который продает.',
-    icon: Palette,
-    tags: ['Figma', 'Prototyping', 'UI Kit']
+    title: 'Brilliant Design',
+    description: 'Интерфейсы, которые хочется трогать. UI/UX в Figma с акцентом на эстетику и конверсию.',
+    icon: Palette
   },
   {
     id: 'bot',
-    title: 'Telegram Bots',
-    description: 'Чат-боты для автоматизации рутины. Магазины, техподдержка, рассылки.',
-    icon: Bot,
-    tags: ['Python', 'Aiogram', 'Automation']
+    title: 'Telegram Ecosystem',
+    description: 'Боты для автоматизации и Mini Apps для полноценных сервисов внутри мессенджера.',
+    icon: Bot
   },
   {
-    id: 'miniapp',
-    title: 'TG Mini Apps',
-    description: 'Веб-приложения внутри Telegram. Игры, сервисы и магазины прямо в мессенджере.',
-    icon: Smartphone,
-    tags: ['React', 'TWA', 'TonConnect']
+    id: 'performance',
+    title: 'High Performance',
+    description: 'Техническая оптимизация, высокая скорость загрузки и идеальная работа на всех устройствах.',
+    icon: Zap
   },
   {
-    id: 'identity',
-    title: 'Identity',
-    description: 'Логотипы и фирменный стиль. Создаем узнаваемый образ для вашего бренда.',
-    icon: PenTool,
-    tags: ['Logo', 'Brandbook', 'Style']
+    id: 'webapps',
+    title: 'Web Apps',
+    description: 'Создание современных веб-приложений и сложных многостраничных порталов под ключ.',
+    icon: Globe
   },
   {
-    id: 'optimization',
-    title: 'Optimization',
-    description: 'Ускорение работы сайтов, SEO-настройки и подключение аналитики.',
-    icon: Zap,
-    tags: ['SEO', 'Analytics', 'Speed']
+    id: 'mobile',
+    title: 'Mobile First',
+    description: 'Проектирование под смартфоны как стандарт качества. Идеальный опыт для мобильных пользователей.',
+    icon: Smartphone
   }
 ];
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-24 relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4 tracking-tight">
-            ЧТО МЫ <span className="text-taiga-400">ДЕЛАЕМ</span>
-          </h2>
-          <p className="text-taiga-200/60 max-w-2xl mx-auto">
-            Специализируемся на эффективных решениях. Никакого лишнего кода там, где он не нужен.
-          </p>
+    <section id="services" className="py-32 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-wild-cyan/20 to-transparent"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-[1.1]">
+              НАШИ <span className="text-wild-sunset">ИНСТРУМЕНТЫ</span><br />
+              ДЛЯ ВАШЕГО РОСТА
+            </h2>
+            <p className="text-white/40 text-lg leading-relaxed">
+              Мы не просто делаем сайты — мы создаем цифровой опыт, который выделяет вас среди конкурентов и заставляет клиентов возвращаться.
+            </p>
+          </div>
+          <div className="hidden lg:block text-right">
+             <div className="text-wild-cyan/30 text-8xl font-display font-bold select-none leading-none">01</div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <div 
               key={service.id}
-              className="glass-card group p-8 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(20,184,166,0.2)] relative overflow-hidden"
+              className="glass-card group p-10 rounded-3xl transition-all duration-500 hover:border-wild-cyan/40 hover:-translate-y-2 relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-20 transition-opacity">
-                <service.icon className="w-24 h-24 text-taiga-400 transform rotate-12" />
-              </div>
-
-              <div className="w-14 h-14 bg-taiga-950/50 border border-taiga-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:border-boar-500/50 transition-colors text-taiga-400 group-hover:text-boar-500">
-                <service.icon className="w-7 h-7" />
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-wild-cyan/5 rounded-full blur-3xl group-hover:bg-wild-cyan/10 transition-colors"></div>
+              
+              <div className="w-16 h-16 bg-wild-night border border-white/5 rounded-2xl flex items-center justify-center mb-8 group-hover:border-wild-sunset transition-colors shadow-xl">
+                <service.icon className="w-8 h-8 text-wild-cyan group-hover:text-wild-sunset transition-colors" />
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-taiga-200 transition-colors">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 {service.title}
               </h3>
               
-              <p className="text-taiga-100/60 mb-6 leading-relaxed text-sm">
+              <p className="text-white/50 leading-relaxed text-sm">
                 {service.description}
               </p>
-
-              <div className="flex flex-wrap gap-2 relative z-10">
-                {service.tags.map(tag => (
-                  <span key={tag} className="text-xs font-mono text-taiga-300 bg-taiga-900/50 px-2 py-1 rounded border border-taiga-500/10">
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
           ))}
         </div>

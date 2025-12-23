@@ -1,75 +1,80 @@
 import React from 'react';
-import { ArrowRight, ChevronDown, Send } from 'lucide-react';
+import { ChevronDown, Send, Sparkles } from 'lucide-react';
 import { NavLink } from '../types';
 
 const Hero: React.FC = () => {
+  // Define specific glow positions to avoid the center area where the boar is
+  const glowZones = [
+    { left: '5%', top: '10%', size: '300px', delay: '0s', opacity: 'bg-wild-cyan/10' },   // Top Left
+    { left: '80%', top: '5%', size: '400px', delay: '2s', opacity: 'bg-wild-cyan/5' },    // Top Right
+    { left: '-5%', top: '60%', size: '350px', delay: '4s', opacity: 'bg-wild-cyan/10' },  // Mid Left
+    { left: '85%', top: '70%', size: '450px', delay: '1s', opacity: 'bg-wild-cyan/5' },   // Bottom Right
+    { left: '15%', top: '85%', size: '250px', delay: '3s', opacity: 'bg-wild-cyan/10' },  // Bottom Left
+    { left: '40%', top: '-10%', size: '500px', delay: '5s', opacity: 'bg-wild-cyan/5' },  // Top Center (very high)
+  ];
+
   return (
-    <div id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Aurora Borealis Background */}
-      <div className="absolute inset-0 overflow-hidden -z-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-taiga-950 via-taiga-900 to-taiga-950"></div>
-        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-taiga-500/20 rounded-full blur-[120px] animate-aurora mix-blend-screen"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-900/30 rounded-full blur-[120px] animate-pulse-slow mix-blend-screen"></div>
+    <div id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wild-night">
+      {/* Main Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://i.postimg.cc/3w13zjcf/Google-AI-Studio-2025-12-13T15-09-29-758Z.png"
+          alt="Taiga Boar Atmosphere"
+          className="w-full h-full object-cover select-none pointer-events-none"
+        />
+        {/* Atmosphere Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-wild-night via-wild-night/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-wild-indigo/10 mix-blend-multiply"></div>
       </div>
 
-      {/* Snow Effect */}
-      <div className="absolute inset-0 pointer-events-none -z-10 opacity-30">
-        {[...Array(20)].map((_, i) => (
+      {/* Optimized Glowing Particles (Peripheral only) */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {glowZones.map((glow, i) => (
           <div 
             key={i}
-            className="absolute bg-white rounded-full animate-snow"
+            className={`absolute ${glow.opacity} rounded-full blur-[120px] animate-float`}
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `-${Math.random() * 20}%`,
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-              animationDuration: `${Math.random() * 5 + 10}s`,
-              animationDelay: `${Math.random() * 5}s`
+              left: glow.left,
+              top: glow.top,
+              width: glow.size,
+              height: glow.size,
+              animationDuration: '10s',
+              animationDelay: glow.delay
             }}
           ></div>
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center z-10 relative">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-taiga-900/40 border border-taiga-500/30 backdrop-blur-md mb-8 animate-fade-in-up shadow-[0_0_15px_rgba(20,184,166,0.2)]">
-          <span className="w-2 h-2 rounded-full bg-boar-500 animate-pulse"></span>
-          <span className="text-taiga-100 text-sm font-medium tracking-wide">MADE IN SIBERIA</span>
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center z-10 relative">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-wild-indigo/60 border border-wild-cyan/30 backdrop-blur-lg mb-8 animate-fade-in-up">
+          <Sparkles className="w-4 h-4 text-wild-cyan animate-pulse" />
+          <span className="text-wild-cyan text-xs font-bold tracking-[0.2em] uppercase">MADE IN SIBERIA</span>
         </div>
         
-        <h1 className="text-5xl md:text-7xl lg:text-9xl font-display font-bold text-white tracking-tight mb-6 leading-[0.9] drop-shadow-2xl">
-          TAIGA <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-boar-400 via-boar-500 to-boar-600">
+        <h1 className="text-7xl md:text-[11rem] font-display font-bold text-white tracking-tighter mb-4 leading-[0.85] select-none uppercase">
+          TAIGA<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-wild-sunset via-wild-gold to-wild-sunset bg-[length:200%_auto] animate-aurora">
             BOAR
           </span>
         </h1>
         
-        <p className="mt-6 max-w-2xl text-lg md:text-xl text-taiga-100/80 mb-10 font-light leading-relaxed">
-          Сайты на Tilda. Дизайн в Figma. Telegram боты.<br className="hidden md:block"/>
-          Эстетика, скорость и сибирский характер.
+        <p className="mt-8 max-w-2xl text-lg md:text-xl text-white/80 mb-12 font-light leading-relaxed tracking-wide drop-shadow-xl">
+          Создаем цифровые экосистемы с таежным характером. <br className="hidden md:block"/>
+          <span className="text-wild-cyan font-medium">Tilda</span> • <span className="text-wild-cyan font-medium">Design</span> • <span className="text-wild-cyan font-medium">Telegram</span>
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-          <a 
-            href="https://t.me/taigaboar_manager" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-boar-600 rounded-full overflow-hidden transition-all hover:bg-boar-500 shadow-[0_0_20px_rgba(234,88,12,0.4)] hover:shadow-[0_0_30px_rgba(234,88,12,0.6)]"
-          >
-            <span className="relative flex items-center gap-2">
-              Обсудить в Telegram <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </span>
-          </a>
+        <div className="flex justify-center">
           <a 
             href={NavLink.PORTFOLIO}
-            className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-taiga-100 border border-taiga-500/30 rounded-full hover:bg-taiga-900/50 hover:text-white transition-all backdrop-blur-sm"
+            className="group relative inline-flex items-center justify-center px-12 py-5 text-lg font-bold text-white border border-white/10 bg-white/5 rounded-full hover:bg-white/10 hover:border-wild-cyan/50 transition-all backdrop-blur-md shadow-2xl"
           >
-            Смотреть портфолио
+            Смотреть кейсы
           </a>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-taiga-500/50">
-        <ChevronDown className="w-8 h-8" />
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce text-wild-cyan/50">
+        <ChevronDown className="w-6 h-6" />
       </div>
     </div>
   );

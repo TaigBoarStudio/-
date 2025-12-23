@@ -1,0 +1,16 @@
+{
+  "name": "TAIGA BOAR Studio",
+  "short_name": "TaigaBoar",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020606",
+  "theme_color": "#f97316",
+  "description": "Premium digital studio specializing in Tilda, Design, and Telegram Bots.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

@@ -9,11 +9,11 @@ import Footer from './components/Footer';
 import ProjectPage from './components/ProjectPage';
 
 function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'project'>('home');
+  const [currentView, setCurrentView] = useState<string>('home');
 
   return (
-    <div className="min-h-screen bg-taiga-950 text-white font-sans relative z-0">
-      <Header onNavigate={setCurrentView} />
+    <div className="min-h-screen bg-wild-night text-white font-sans relative z-0">
+      <Header onNavigate={() => setCurrentView('home')} />
       
       <main>
         {currentView === 'home' ? (
@@ -21,11 +21,14 @@ function App() {
             <Hero />
             <Services />
             <About />
-            <Portfolio onOpenProject={() => setCurrentView('project')} />
+            <Portfolio onOpenProject={(id) => setCurrentView(id)} />
             <Contact />
           </>
         ) : (
-          <ProjectPage onBack={() => setCurrentView('home')} />
+          <ProjectPage 
+            projectId={currentView} 
+            onBack={() => setCurrentView('home')} 
+          />
         )}
       </main>
       

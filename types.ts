@@ -1,3 +1,4 @@
+
 import { LucideIcon } from 'lucide-react';
 
 export interface Service {
@@ -5,7 +6,6 @@ export interface Service {
   title: string;
   description: string;
   icon: LucideIcon;
-  tags: string[];
 }
 
 export interface Project {
@@ -15,12 +15,6 @@ export interface Project {
   description: string;
   url?: string;
   image?: string;
-}
-
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-  isError?: boolean;
 }
 
 export enum NavLink {
@@ -33,4 +27,10 @@ export enum NavLink {
 
 export interface NavigationProps {
   onNavigate: (view: 'home' | 'project') => void;
+}
+
+// Added missing ChatMessage interface for chat history and consultant interactions
+export interface ChatMessage {
+  role: 'user' | 'model';
+  text: string;
 }
