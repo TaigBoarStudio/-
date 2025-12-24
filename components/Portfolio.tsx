@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Project } from '../types';
 import { ArrowUpRight, Globe } from 'lucide-react';
@@ -31,11 +32,18 @@ const Portfolio: React.FC<PortfolioProps> = ({ onOpenProject }) => {
           <div>
             <div className="flex items-center gap-2 text-wild-cyan mb-4">
               <span className="w-12 h-[1px] bg-wild-cyan"></span>
-              <span className="uppercase tracking-[0.3em] text-xs font-bold">Showcase</span>
+              <span className="uppercase tracking-[0.3em] text-xs font-bold">Showcase & Results</span>
             </div>
             <h2 className="text-4xl md:text-6xl font-display font-bold text-white">
               ИЗБРАННЫЕ <span className="italic text-wild-sunset">КЕЙСЫ</span>
             </h2>
+          </div>
+          <div className="mt-8 md:mt-0">
+             <div className="text-white/30 text-xs font-bold uppercase tracking-widest flex items-center gap-4">
+                <span>Проекты в продакшене</span>
+                <span className="w-px h-4 bg-white/10"></span>
+                <span className="text-wild-cyan">100% запуск</span>
+             </div>
           </div>
         </div>
 

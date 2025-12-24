@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -20,8 +21,8 @@ function App() {
           <>
             <Hero />
             <Services />
-            <About />
             <Portfolio onOpenProject={(id) => setCurrentView(id)} />
+            <About />
             <Contact />
           </>
         ) : (

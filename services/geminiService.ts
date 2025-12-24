@@ -14,7 +14,7 @@ const SYSTEM_INSTRUCTION = `
 
 Твоя цель:
 - Консультировать по услугам TAIGA BOAR.
-- Подчеркивать нашу уникальность: мы объединяем мощь (Boar) и северную эстетику (Taiga Nature/Neon).
+- Подчеркивать нашу уникальность: мы объединяем мощь (Boar) и северную эстетику (Taiga/Nature/Neon).
 - Предлагать связаться с менеджером в Telegram для детального расчета.
 
 Цены (ориентировочно): Лендинги от 50 000 руб, Боты от 35 000 руб, Дизайн от 40 000 руб.
@@ -22,7 +22,6 @@ const SYSTEM_INSTRUCTION = `
 
 export const sendMessageToGemini = async (history: ChatMessage[], newMessage: string): Promise<string> => {
   try {
-    // ALWAYS initialize with process.env.API_KEY directly inside the function
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const prompt = `
@@ -34,7 +33,6 @@ export const sendMessageToGemini = async (history: ChatMessage[], newMessage: st
       Ответь от имени студии TAIGA BOAR:
     `;
 
-    // Using gemini-3-flash-preview for general Q&A and basic text tasks
     const response: GenerateContentResponse = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: prompt,
@@ -43,7 +41,6 @@ export const sendMessageToGemini = async (history: ChatMessage[], newMessage: st
       }
     });
 
-    // Access the .text property directly (it is not a method)
     return response.text || "Извините, сейчас я не могу ответить. Напишите нам напрямую.";
   } catch (error) {
     console.error("Gemini Error:", error);

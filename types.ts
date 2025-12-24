@@ -1,11 +1,18 @@
 
 import { LucideIcon } from 'lucide-react';
 
+// Added ChatMessage interface to fix the import error in geminiService.ts
+export interface ChatMessage {
+  role: 'user' | 'model';
+  text: string;
+}
+
 export interface Service {
   id: string;
   title: string;
   description: string;
   icon: LucideIcon;
+  benefit?: string;
 }
 
 export interface Project {
@@ -29,8 +36,4 @@ export interface NavigationProps {
   onNavigate: (view: 'home' | 'project') => void;
 }
 
-// Added missing ChatMessage interface for chat history and consultant interactions
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-}
+export const TELEGRAM_URL = "https://t.me/+V9KqBJXJBMYyMTdi";

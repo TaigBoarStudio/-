@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { NavLink } from '../types';
+import { Menu, X, Send } from 'lucide-react';
+import { NavLink, TELEGRAM_URL } from '../types';
 import { Logo } from './Logo';
 
 interface HeaderProps {
@@ -34,9 +35,9 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   };
 
   const navLinks = [
-    { name: 'Сервис', href: NavLink.SERVICES },
-    { name: 'Манифест', href: NavLink.ABOUT },
+    { name: 'Результат', href: NavLink.SERVICES },
     { name: 'Кейсы', href: NavLink.PORTFOLIO },
+    { name: 'Манифест', href: NavLink.ABOUT },
   ];
 
   return (
@@ -52,8 +53,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             </button>
           </div>
           
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-10">
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex items-baseline space-x-10">
               {navLinks.map((link) => (
                 <button
                   key={link.name}
@@ -64,6 +65,16 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                 </button>
               ))}
             </div>
+            
+            <a 
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 bg-wild-sunset text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-white hover:text-wild-night transition-all flex items-center gap-2"
+            >
+              <Send className="w-3 h-3" />
+              ОБСУДИТЬ ПРОЕКТ
+            </a>
           </div>
 
           <div className="-mr-2 flex md:hidden">
@@ -88,6 +99,15 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
               {link.name}
             </button>
           ))}
+          <a 
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-4 bg-wild-sunset text-white text-center font-bold uppercase rounded-xl flex items-center justify-center gap-2"
+          >
+            <Send className="w-4 h-4" />
+            Написать в Telegram
+          </a>
         </div>
       </div>
     </nav>
